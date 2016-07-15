@@ -4,6 +4,8 @@ var Twitter = require('twitter');
 var fs = require('fs');
 var api_key = require('../../api_keys.js')
 
+var db = require('../database');
+
 
 // Watson functions below
 
