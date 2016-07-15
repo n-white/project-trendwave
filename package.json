@@ -1,0 +1,24 @@
+{
+  "name": "greenfield",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.7.1",
+    "express": "^4.14.0",
+    "fs": "0.0.2",
+    "google-trends-api": "^1.2.4",
+    "live-server": "^1.0.0",
+    "morgan": "^1.7.0",
+    "nodemon": "^1.9.2",
+    "request": "^2.73.0"
+  }
+}
