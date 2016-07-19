@@ -34,12 +34,12 @@ var countSentiment = function(sentimentType) {
 	} else if (sentimentType === 'positive') {
 		positiveCount++
 	} else if (sentimentType === 'negative') {
-		negativecount++
+		negativeCount++
 	}
 }
 
 var positiveCount = 0;
-var negativecount = 0;
+var negativeCount = 0;
 var neutralCount = 0;
 
 var getAggregateSentiment = function(tweets) {
@@ -47,12 +47,13 @@ var getAggregateSentiment = function(tweets) {
 		getSentiment(tweet).then(function(item) {
 			countSentiment(item);
 		}).then(function() {
-			if (tweets.length === positiveCount + negativecount + neutralCount) {
-				var total = positiveCount + negativecount + neutralCount;
-				console.log('positive: ', positiveCount / total, ' negative: ', negativecount / total, ' neutral: ', neutralCount / total);
+			if (tweets.length === positiveCount + negativeCount + neutralCount) {
+				var total = positiveCount + negativeCount + neutralCount;
+				console.log('positive: ', positiveCount / total, ' negative: ', negativeCount / total, ' neutral: ', neutralCount / total);
 				positiveCount = 0;
-				negativecount = 0;
+				negativeCount = 0;
 				neutralCount = 0;
+				// return {positive: positiveCount, negative: negativeCount, neutral: neutralCount}
 			}
 		})
 	})
@@ -82,7 +83,12 @@ module.exports = {
 		      .replace(/[`~@#$%^&*()_|☆+\-=;:<>\{\}\[\]\\\/]/gi, ' ')
 		    	}
 		   })
-		   console.log(tweetText)
+
+		   var temp = tweetText.map(function(item) {
+		   	return item.text;
+		   }).join('. ');
+
+		   console.log(temp)
 		   getAggregateSentiment(tweetText);
 
 		 }
